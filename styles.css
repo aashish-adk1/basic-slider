@@ -1,0 +1,85 @@
+/* Reset */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg,#f4b96d, #ea9672, #dc6978, #dc5a7e,#b92d86,#a52e96,#9232a1,#7d32a9,#7d32b0);
+  overflow: hidden;
+}
+
+.scroll-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh; /* Make sure the container fills the screen */
+  width: 400px;
+  overflow: hidden;
+}
+
+.box {
+  position: absolute;
+  background: linear-gradient(90deg,#d65b78,#d75579,#d24e7d,#ce4a83); /* Transparent effect */
+  border-radius: 15px; /* Rounder corners */
+  width: 90%;
+  height: 200px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0.5;
+  transform: scale(0.8);
+  transition: transform 0.5s ease, opacity 0.5s ease, top 0.5s ease;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+}
+
+.box.middle {
+  transform: scale(1.2);
+  opacity: 1;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%) scale(1.2);
+}
+
+.box.above {
+  top: 0;
+  transform: scale(0.7);
+  opacity: 0.3;
+}
+
+.box.below {
+  top: 100%;
+  transform: scale(0.7);
+  opacity: 0.3;
+}
+
+.photo-placeholder {
+  width: 90%;
+  height: 150px;
+  border-radius: 15px; /* Rounder corners */
+  background: rgba(255, 255, 255, 0.2);
+  margin-bottom: 15px;
+}
+
+.profile-placeholder {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 90%;
+}
+
+.circle-placeholder {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.line-placeholder {
+  width: calc(100% - 60px);
+  height: 15px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+}
