@@ -1,7 +1,7 @@
 const container = document.querySelector('.scroll-container');
-let boxes = []; // Track the three visible boxes
+let boxes = []; 
 
-// Helper function to create a box
+
 let boxCounter = 1;
 function createBox() {
   const box = document.createElement('div');
@@ -29,7 +29,7 @@ function createBox() {
   return box;
 }
 
-// Initialize with three boxes
+
 function initializeBoxes() {
   for (let i = 0; i < 3; i++) {
     const box = createBox();
@@ -39,7 +39,7 @@ function initializeBoxes() {
   updateFocus();
 }
 
-// Update focus to keep the middle box enlarged and centered
+
 function updateFocus() {
   boxes.forEach((box, index) => {
     box.classList.remove('middle', 'above', 'below');
@@ -53,24 +53,24 @@ function updateFocus() {
   });
 }
 
-// Scroll up and update boxes
+
 function scrollUp() {
-  const firstBox = boxes.shift(); // Remove the first box
+  const firstBox = boxes.shift(); 
   container.removeChild(firstBox);
 
-  const newBox = createBox(); // Add a new box at the end
+  const newBox = createBox(); 
   container.appendChild(newBox);
   boxes.push(newBox);
 
   updateFocus();
 }
 
-// Drag functionality
+// for Dragging functionality
 let isDragging = false;
 let startY = 0;
 
 container.addEventListener('mousedown', (e) => {
-  const middleBox = boxes[1]; // The middle box
+  const middleBox = boxes[1];
   if (middleBox.contains(e.target)) {
     isDragging = true;
     startY = e.clientY;
@@ -90,11 +90,9 @@ container.addEventListener('mousemove', (e) => {
 
   const deltaY = e.clientY - startY;
   if (deltaY < -50) {
-    // Dragging up: Scroll the middle box out of view
     scrollUp();
     isDragging = false;
   }
 });
 
-// Initialize
 initializeBoxes();
